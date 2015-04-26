@@ -29,7 +29,6 @@
 			$ctn			= $( cfg.selectors.content ),
 			//settings
 			dataName	= cfg.settings.dataName,
-			dataName2	= dataName + '-active',
 			gap				= cfg.settings.gap,
 			duration	= cfg.settings.animation.duration,
 			easing		= cfg.settings.animation.easing,
@@ -76,7 +75,7 @@
 		};
 		
 		//creating and defining the sidebar
-		$( 'body' ).append( '<div data-' + dataName + '="sidebar" data-' + dataName + '-active="false"><div data-' + dataName + '="sub-wrapper"></div></div>' );
+		$( 'body' ).append( '<div data-' + dataName + '="sidebar"><div data-' + dataName + '="sub-wrapper"></div></div>' );
 		//
 		$sb = $( 'body' ).children().filter(function() {
 			return $( this ).data( dataName ) === 'sidebar' ;
@@ -125,19 +124,15 @@
 			};
 			
 			if ( false === nClick ( clicks ) ) {
-				$sb
-					.attr( 'data-' + dataName2, 'true')
-					.animate( animationStart, {
-						duration: duration,
-						easing: easing
-					});
+				$sb.animate( animationStart, {
+					duration: duration,
+					easing: easing
+				});
 			} else if ( true === nClick ( clicks ) ) {
-				$sb
-					.attr( 'data-' + dataName2, 'false')
-					.animate( animationReset, {
-						duration: duration,
-						easing: easing
-					});
+				$sb.animate( animationReset, {
+					duration: duration,
+					easing: easing
+				});
 			}
 		});
 		//
@@ -148,12 +143,10 @@
 				right: -nsbw			
 			};
 			
-			$sb
-				.attr( 'data-' + dataName2, 'false')
-				.animate( animationReset, {
-					duration: duration,
-					easing: easing
-				});
+			$sb.animate( animationReset, {
+				duration: duration,
+				easing: easing
+			});
 			
 			clicks = 0;
 		});	
@@ -170,6 +163,10 @@
 				rsbw = custStyle.width;
 			}
 			
+			animationReset = {
+					right: -rsbw			
+			};
+			
 			//redefining style
 			$sb.css( 'max-width', rsbw );
 			
@@ -179,32 +176,16 @@
 				$sb.show();
 			} else {
 				$ctn.show();
-				$sb.hide().attr( 'data-' + dataName2, 'false');
+				$sb.hide()
+					.animate( animationReset, {
+						duration: duration,
+						easing: easing,
+						complete: function() {
+							clicks = 0;
+						}
+					})
+					.attr( 'data-' + dataName2, 'false');
 			}
-			
-			/*
-			//closing sidebar when resizing
-			$sb.css( 'right', -rsbw )
-			*/
-			
-			//checking if the sidebar is opened or closed
-			if( $sb.data( dataName2 ) === 'true' ) {
-				//sidebar is opened
-				$sb.css( 'right', 0 );
-				
-				//hiding on
-				if( 768 < rwWidth ) {
-					$sb
-						.attr( 'data-' + dataName2, 'false')
-						.css( 'right', -rsbw );
-				}
-			} else if ( $sb.data( dataName2 ) === 'false' ) {
-				//sidebar is closed
-				$sb.css( 'right', -rsbw );
-				
-				console.log( 'buu');			
-			}
-
 		});
 		
 		return this;
