@@ -1,62 +1,101 @@
+// GPLv2 http://www.gnu.org/licenses/gpl-2.0-standalone.html
 (function( $ ) {
 	$.fn.nb2sb = function( options ) {
-		var json,
-			defaults		= {
-				set: {
+		var sbw, navDefStyle, plugStyle, $sb, $sbWrapper, sbwStyle, sbStyle, $sUl, sUlClasses,
+			//defaults options
+			defaults	= {
+				selectors: {
 					opener: undefined,
-					content: undefined
+					content: undefined			
 				},
-				style: {}
+				settings: {
+					dataName: 'nb2sb',
+					gap: 64,
+					animation: {
+						duration: 500,
+						easing: 'swing'
+					},
+					style: {
+						width: 250,
+						padding: '1em',
+					}
+				},
+				ajax: {}
 			},
-			config		= $.extend( true, defaults, options ),
-			cusStyle		= config.style,
-			$nav			= $( this ),
-			$btn			= $( config.set.opener ),
-			$ctn			= $( config.set.content ),
-			$ul			= $ctn.children(),
-			ulClass		= $ul.prop('class');
-			
-		//nav default style
-		var defNbStyle = {
-			height: $nav.height(),
-			backgroundColor: $nav.css('background-color'),
-			zIndex: $nav.css('z-index'),
-			minHeight: $nav.css('min-height')
-		},
-		//Sidebar Style
-			defStyle		= {
-				position: 'fixed',
-				top: defNbStyle.minHeight,
-				right: 0,
-				bottom: 0,
-				backgroundColor: defNbStyle.backgroundColor,
-				zIndex: defNbStyle.zIndex - 1
-			},
-			sbStyle = $.extend( {},  cusStyle, defStyle ),
-			sbClass = "nav nav-pills nav-stacked nb2sb-active";
+			cfg				= $.extend( true, defaults, options ),
+			//selectors
+			$nav			= this,
+			$btn			= $( cfg.selectors.opener ),
+			$ctn			= $( cfg.selectors.content ),
+			//settings
+			dataName	= cfg.settings.dataName,
+			gap				= cfg.settings.gap,
+			duration	= cfg.settings.animation.duration,
+			easing		= cfg.settings.animation.easing,
+			//custom sidebar style
+			custStyle	= cfg.settings.style,
+			sbStyle		= {},
+			//other
+			wWidth		= $( window ).width(),
+			nclick		= 0;
 		
-		$( window ).resize(function() {
-			var $w	= $(this),
-				w		= $w.width();
-				
-			if ( 768 > w ) {
-				$ul
-					.removeClass( ulClass )
-					.addClass( sbClass  );
-			} else {
-				$ul
-					.removeClass( sbClass )
-					.addClass( ulClass );
-			}
-			
-			if ( $ul.hasClass( 'nb2sb-active' ) ) {
-				$ctn.css( sbStyle );
-			} else {
-				$ctn.removeAttr( 'style' );
-			}
-			
+		//defining Sidebar style
+		sbw = custStyle.width; //still not responsive
+		//
+		//Navbar default style
+		navDefStyle = {
+			minHeight: $nav.css('min-height'),
+			backgroundColor: $nav.css('background-color'),
+			zIndex: $nav.css('z-index')
+		};
+		//
+		//Sidebar Plugin Style
+		plugStyle = {
+			position: 'fixed',
+			top: parseInt(navDefStyle.minHeight),
+			right: -sbw,
+			bottom: 0,
+			zIndex: navDefStyle.zIndex - 1,
+			backgroundColor: navDefStyle.backgroundColor
+		};
+		//
+		//Sidebar final Style
+		$.extend(true, sbStyle, plugStyle, custStyle);
+		//
+		//SubWrapper style
+		sbwStyle = {
+			width: '100%',
+			height: '100%',
+			overflow: 'auto'
+		};
+		
+		//creating and defining the sidebar
+		$( 'body' ).append( '<div data-' + dataName + '="sidebar"><div data-' + dataName + '="sub-wrapper"></div></div>' );
+		//
+		$sb = $( 'body' ).children().filter(function() {
+			return $( this ).data( dataName ) === 'sidebar' ;
 		});
-		$( window ).resize();
+		//allowing overflow
+		$sbWrapper = $sb.children().filter(function() {
+			return $( this ).data( dataName ) === 'sub-wrapper' ;
+		});
+		//style and copying $ctn to the new sidebar
+		$sb.css( sbStyle );
+		$sbWrapper.css( sbwStyle ).append( $ctn.html() );
+		
+		//resetting new $ctn on sidebar
+		$sUl = $sbWrapper.children();
+		//
+		sUlClasses = $sUl.prop( 'class' );
+		//
+		$sUl.removeClass( sUlClasses ).addClass( 'nav nav-pills nav-stacked nb2sb-active' );
+			
+		//hiding $ctn on small devices according to Bootstrap
+		if( 768 > wWidth ) {
+			$ctn.hide();
+		} else {
+			$ctn.show();
+		}
 			
 		return this;
 	};
