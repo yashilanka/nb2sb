@@ -1,7 +1,7 @@
 // GPLv2 http://www.gnu.org/licenses/gpl-2.0-standalone.html
 (function( $ ) {
 	$.fn.nb2sb = function( options ) {
-		var sbw, navDefStyle, plugStyle, $sb, $sbWrapper, sbwStyle, sbStyle, $sUl, sUlClasses,
+		var sbw, navDefStyle, plugStyle, $sb, $sbWrapper, sbwStyle, sbStyle, $sUl, sUlClasses, nClick, animationStart, animationReset,
 			//defaults options
 			defaults	= {
 				selectors: {
@@ -37,7 +37,7 @@
 			sbStyle		= {},
 			//other
 			wWidth		= $( window ).width(),
-			nclick		= 0;
+			clicks		= 0;
 		
 		//defining Sidebar style
 		sbw = custStyle.width; //still not responsive
@@ -80,7 +80,7 @@
 			return $( this ).data( dataName ) === 'sub-wrapper' ;
 		});
 		//style and copying $ctn to the new sidebar
-		$sb.css( sbStyle );
+		$sb.css( sbStyle ).hide();
 		$sbWrapper.css( sbwStyle ).append( $ctn.html() );
 		
 		//resetting new $ctn on sidebar
@@ -93,10 +93,58 @@
 		//hiding $ctn on small devices according to Bootstrap
 		if( 768 > wWidth ) {
 			$ctn.hide();
+			$sb.show();
 		} else {
 			$ctn.show();
+			$sb.hide();
 		}
+		
+		//triggering the animations.
+		
+		$btn.click(function() {
+			var nsbw = $sb.outerWidth();
+			console.log( nsbw );
+			clicks++
+			nClick = function( e ) {
+				return ( e % 2 === 0 ) ? true : false;
+			};
 			
+			animationStart = {
+				right: 0,
+			};
+			animationReset = {
+				right: -nsbw			
+			};
+			
+			if ( false === nClick ( clicks ) ) {
+				$sb.animate( animationStart, {
+					duration: duration,
+					easing: easing
+				});
+			} else if ( true === nClick ( clicks ) ) {
+				$sb.animate( animationReset, {
+					duration: duration,
+					easing: easing
+				});
+			}
+		});
+		
+		//closing sidebar when a link is clicked	
+		$sb.on( 'click', 'a', function() {
+			var nsbw = $sb.outerWidth();
+			animationReset = {
+				right: -nsbw			
+			};
+			
+			$sb.animate( animationReset, {
+				duration: duration,
+				easing: easing
+			});
+			
+			clicks = 0;
+		});	
+		
+		
 		return this;
 	};
 })( jQuery );
