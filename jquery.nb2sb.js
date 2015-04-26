@@ -6,7 +6,7 @@
 			defaults	= {
 				selectors: {
 					opener: undefined,
-					content: undefined			
+					content: undefined
 				},
 				settings: {
 					dataName: 'nb2sb',
@@ -34,7 +34,6 @@
 			easing		= cfg.settings.animation.easing,
 			//custom sidebar style
 			custStyle	= cfg.settings.style,
-			sbStyle		= {},
 			//other
 			wWidth		= $( window ).width(),
 			clicks		= 0;
@@ -111,7 +110,7 @@
 		//
 		$btn.click(function() {
 			nsbw = $sb.outerWidth();
-			clicks++
+			clicks++;
 			nClick = function( e ) {
 				return ( e % 2 === 0 ) ? true : false;
 			};
@@ -120,7 +119,7 @@
 				right: 0,
 			};
 			animationReset = {
-				right: -nsbw			
+				right: -nsbw
 			};
 			
 			if ( false === nClick ( clicks ) ) {
@@ -140,7 +139,7 @@
 		$sb.on( 'click', 'a', function() {
 			nsbw = $sb.outerWidth();
 			animationReset = {
-				right: -nsbw			
+				right: -nsbw
 			};
 			
 			$sb.animate( animationReset, {
@@ -164,7 +163,7 @@
 			}
 			
 			animationReset = {
-					right: -rsbw			
+					right: -rsbw
 			};
 			
 			//redefining style
