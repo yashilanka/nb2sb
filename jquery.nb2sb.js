@@ -16,7 +16,7 @@
 						easing: 'swing'
 					},
 					style: {
-						width: 250,
+						width: 500,
 						padding: '1em',
 					}
 				},
@@ -40,7 +40,11 @@
 			clicks		= 0;
 		
 		//defining Sidebar style
-		sbw = custStyle.width; //still not responsive
+		if ( custStyle.width > wWidth ) {
+			sbw = wWidth - gap;
+		} else {
+			sbw = custStyle.width;
+		}
 		//
 		//Navbar default style
 		navDefStyle = {
@@ -100,7 +104,7 @@
 		}
 		
 		//triggering the animations.
-		
+		//
 		$btn.click(function() {
 			var nsbw = $sb.outerWidth();
 			console.log( nsbw );
@@ -128,7 +132,7 @@
 				});
 			}
 		});
-		
+		//
 		//closing sidebar when a link is clicked	
 		$sb.on( 'click', 'a', function() {
 			var nsbw = $sb.outerWidth();
@@ -144,6 +148,10 @@
 			clicks = 0;
 		});	
 		
+		//adding responsiveness
+		//
+		$( window ).resize(function() {
+		});
 		
 		return this;
 	};
