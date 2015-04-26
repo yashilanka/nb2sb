@@ -45,6 +45,8 @@
 		} else {
 			sbw = custStyle.width;
 		}
+		
+		console.log( sbw );
 		//
 		//Navbar default style
 		navDefStyle = {
@@ -60,6 +62,7 @@
 			right: -sbw,
 			bottom: 0,
 			zIndex: navDefStyle.zIndex - 1,
+			maxWidth: sbw,
 			backgroundColor: navDefStyle.backgroundColor
 		};
 		//
