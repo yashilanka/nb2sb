@@ -1,7 +1,7 @@
 // GPLv2 http://www.gnu.org/licenses/gpl-2.0-standalone.html
 (function( $ ) {
 	$.fn.nb2sb = function( options ) {
-		var sbw, navDefStyle, plugStyle, $sb, $sbWrapper, sbwStyle, sbStyle, $sUl, sUlClasses, nClick, animationStart, animationReset,
+		var sbw, navDefStyle, plugStyle, $sb, $sbWrapper, sbwStyle, sbStyle, $sUl, sUlClasses, nClick, nsbw, animationStart, animationReset, rsbw, rwWidth,
 			//defaults options
 			defaults	= {
 				selectors: {
@@ -29,6 +29,7 @@
 			$ctn			= $( cfg.selectors.content ),
 			//settings
 			dataName	= cfg.settings.dataName,
+			dataName2	= dataName + '-active',
 			gap				= cfg.settings.gap,
 			duration	= cfg.settings.animation.duration,
 			easing		= cfg.settings.animation.easing,
@@ -40,13 +41,11 @@
 			clicks		= 0;
 		
 		//defining Sidebar style
-		if ( custStyle.width > wWidth ) {
+		if ( custStyle.width >= (wWidth - gap) ) {
 			sbw = wWidth - gap;
 		} else {
 			sbw = custStyle.width;
 		}
-		
-		console.log( sbw );
 		//
 		//Navbar default style
 		navDefStyle = {
@@ -77,7 +76,7 @@
 		};
 		
 		//creating and defining the sidebar
-		$( 'body' ).append( '<div data-' + dataName + '="sidebar"><div data-' + dataName + '="sub-wrapper"></div></div>' );
+		$( 'body' ).append( '<div data-' + dataName + '="sidebar" data-' + dataName + '-active="false"><div data-' + dataName + '="sub-wrapper"></div></div>' );
 		//
 		$sb = $( 'body' ).children().filter(function() {
 			return $( this ).data( dataName ) === 'sidebar' ;
@@ -88,6 +87,9 @@
 		});
 		//style and copying $ctn to the new sidebar
 		$sb.css( sbStyle ).hide();
+		//overriding custom width
+		$sb.css( 'width', sbw );
+		//subwrapper style and appending content
 		$sbWrapper.css( sbwStyle ).append( $ctn.html() );
 		
 		//resetting new $ctn on sidebar
@@ -109,8 +111,7 @@
 		//triggering the animations.
 		//
 		$btn.click(function() {
-			var nsbw = $sb.outerWidth();
-			console.log( nsbw );
+			nsbw = $sb.outerWidth();
 			clicks++
 			nClick = function( e ) {
 				return ( e % 2 === 0 ) ? true : false;
@@ -124,29 +125,35 @@
 			};
 			
 			if ( false === nClick ( clicks ) ) {
-				$sb.animate( animationStart, {
-					duration: duration,
-					easing: easing
-				});
+				$sb
+					.attr( 'data-' + dataName2, 'true')
+					.animate( animationStart, {
+						duration: duration,
+						easing: easing
+					});
 			} else if ( true === nClick ( clicks ) ) {
-				$sb.animate( animationReset, {
-					duration: duration,
-					easing: easing
-				});
+				$sb
+					.attr( 'data-' + dataName2, 'false')
+					.animate( animationReset, {
+						duration: duration,
+						easing: easing
+					});
 			}
 		});
 		//
 		//closing sidebar when a link is clicked	
 		$sb.on( 'click', 'a', function() {
-			var nsbw = $sb.outerWidth();
+			nsbw = $sb.outerWidth();
 			animationReset = {
 				right: -nsbw			
 			};
 			
-			$sb.animate( animationReset, {
-				duration: duration,
-				easing: easing
-			});
+			$sb
+				.attr( 'data-' + dataName2, 'false')
+				.animate( animationReset, {
+					duration: duration,
+					easing: easing
+				});
 			
 			clicks = 0;
 		});	
@@ -154,6 +161,50 @@
 		//adding responsiveness
 		//
 		$( window ).resize(function() {
+			//redefining variables
+			rwWidth	= $( window ).width();
+			
+			if ( custStyle.width >= (rwWidth - gap) ) {
+				rsbw = rwWidth - gap;
+			} else {
+				rsbw = custStyle.width;
+			}
+			
+			//redefining style
+			$sb.css( 'max-width', rsbw );
+			
+			//hiding $ctn on small devices according to Bootstrap
+			if( 768 > rwWidth ) {
+				$ctn.hide();
+				$sb.show();
+			} else {
+				$ctn.show();
+				$sb.hide().attr( 'data-' + dataName2, 'false');
+			}
+			
+			/*
+			//closing sidebar when resizing
+			$sb.css( 'right', -rsbw )
+			*/
+			
+			//checking if the sidebar is opened or closed
+			if( $sb.data( dataName2 ) === 'true' ) {
+				//sidebar is opened
+				$sb.css( 'right', 0 );
+				
+				//hiding on
+				if( 768 < rwWidth ) {
+					$sb
+						.attr( 'data-' + dataName2, 'false')
+						.css( 'right', -rsbw );
+				}
+			} else if ( $sb.data( dataName2 ) === 'false' ) {
+				//sidebar is closed
+				$sb.css( 'right', -rsbw );
+				
+				console.log( 'buu');			
+			}
+
 		});
 		
 		return this;
