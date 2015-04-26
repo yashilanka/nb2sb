@@ -183,8 +183,7 @@
 						complete: function() {
 							clicks = 0;
 						}
-					})
-					.attr( 'data-' + dataName2, 'false');
+					});
 			}
 		});
 		
