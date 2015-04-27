@@ -5,7 +5,7 @@
 
 ## Dependencies
 
-- *Bootstrap 3* : this plugin is designed to work with [Bootstrap](http://getbootstrap.com/). If you are looking for a Sidebar plug-in to plug into your website check [Simple Sidebar](www.github.com/dcdeiv/simple-sidebar) out;
+- *Bootstrap 3* : this plugin is designed to work with [Bootstrap](http://getbootstrap.com/). If you are looking for a Sidebar plug-in to plug into your website check [Simple Sidebar](http://www.github.com/dcdeiv/simple-sidebar) out;
 - *jQuery v1.11.2* : you can also include jQuery-Ui for other easing. *see the [example](index.html)*;
 
 ##Installation
