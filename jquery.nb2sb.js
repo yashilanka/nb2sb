@@ -1,7 +1,7 @@
 // GPLv2 http://www.gnu.org/licenses/gpl-2.0-standalone.html
 (function ($) {
     $.fn.nb2sb = function (options) {
-        var sbw, navDefStyle, plugStyle, $sb, $sbWrapper, sbwStyle, sbStyle, $sUl, sUlClasses, nClick, nsbw, animationStart, animationReset, rsbw, rwWidth,
+        var sbw, navDefStyle, plugStyle, $sb, $sbWrapper, sbwStyle, $sUl, sUlClasses, nClick, nsbw, animationStart, animationReset, rsbw, rwWidth,
             //defaults options
             defaults = {
                 selectors: {
@@ -34,6 +34,7 @@
             easing = cfg.settings.animation.easing,
             //custom sidebar style
             custStyle = cfg.settings.style,
+            sbStyle = {},
             //other
             wWidth = $(window).width(),
             clicks = 0;
