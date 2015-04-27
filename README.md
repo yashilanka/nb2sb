@@ -2,6 +2,9 @@
 
 **Nb2Sb (Navbar to Sidebar)** is a *Bootstrap-only* jQuery plug-in that converts your navbar into a sidebar.
 
+
+**This is a beta version. There could be some bugs**
+
 ##[DEMO](http://dcdeiv.github.io/nb2sb)
 
 ## Dependencies
