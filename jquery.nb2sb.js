@@ -28,7 +28,7 @@
             $nav = this,
             $btn = $(cfg.selectors.opener),
             $ctn = $(cfg.selectors.content),
-            $links = $(cfg.selectors.closingLinks),
+            $links = $( cfg.selectors.closingLinks ),
             //settings
             dataName = cfg.settings.dataName,
             gap = cfg.settings.gap,
@@ -96,7 +96,7 @@
         //resetting new $ctn on sidebar
         $sUl = $sbWrapper.children();
         //
-        sUlClasses = $sUl.prop('class');
+        sUlClasses = $sUl.prop('class').;
         //
         $sUl.removeClass(sUlClasses).addClass('nav nav-pills nav-stacked nb2sb-active');
 
@@ -140,7 +140,6 @@
         //
         //closing sidebar when a link is clicked	
         $sb.on('click', $links, function () {
-            console.log( $( this ) );
             nsbw = $sb.outerWidth();
             animationReset = {
                 right: -nsbw
