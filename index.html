@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 	
-		<title>DcDeiv's Nb2Sb</title>
+		<title>DcDeiv's nb2sb</title>
 		
 		<!--Bootstrap CSS v3.3.4-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -27,7 +27,7 @@
 		<nav id="nb2sb-nav" class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
-				  <a class="navbar-brand" href="#">Nb2Sb</a>
+				  <a class="navbar-brand" href="#">DcDeiv</a>
 				  
 				  <!-- icon/button -->
 				  <button id="nb2sb-btn" type="button" class="navbar-toggle" data-toggle="collapse">
@@ -40,43 +40,27 @@
 				<!-- content -->
 				<div id="nb2sb-content">
 				  <ul class="nav navbar-nav nav-pills navbar-right">
-				    <li class="active"><a data-toggle="pill" href="#bio">About</a></li>
-				    <li><a data-toggle="pill" href="#set">Install</a></li>
-				    <li><a data-toggle="pill" href="#doc">Documentation</a></li>
-				    <li><a data-toggle="pill" href="#gallery">Gallery</a></li>
+				    <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+				    <li><a data-toggle="pill" class="close-sb" href="#about">About</a></li>
+				    <li><a data-toggle="pill" href="#contact">Contact</a></li>
+				    <li><a data-toggle="pill" class="close-sb" href="#gallery">Gallery</a></li>
 				  </ul>
 				</div>
 			</div>
 		</nav>
 		
 		<div class="container tab-content">
-			<div id="bio" class="container tab-pane fade in active">
-				<div class="jumbotron">
-		    	<h2>Nb2Sb - Navbar2Sidebar</h2>
-		    	<p>Nb2Sb - Navbar2Sidebar is a Bootstrap-only jQuery plug-in that converts your navbar into a sidebar.</p>
-		    </div>
-		    
-		    <h3>Bootstrap & jQuery</h3>
-		    <p>It works perfectly with Bootstrap 3. You won't need more apis and more code, you just have to include it in your website and the plug-in will do everything you need. Since Bootstrap 3 comes along jQuery you will need to include the jQuery library too, and I suggest to also include the jQuery-UI library.</p>
-		    <p>Get Bootstrap 3 and jQuery</p>
-		    <button type="button" class="btn btn-primary">Bootstrap 3</button>
-		    <button type="button" class="btn btn-primary">jQuery</button>
-		    <button type="button" class="btn btn-primary">jQuery-UI</button>
-		    
-		    <h3>Try it yourself</h3>
-		    <p>Open this <a href="http://dcdeiv.github.io/nb2sb/">website</a> with a smart-phone or shrink your browser's window, the menu will disappear just as you were visiting any Bootstrap-built website, but as you tap or click on the menu-button, a sidebar will appear.
+			<div id="home" class="container tab-pane fade in active">
+		    <h3>HOME</h3>
+		    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 		  </div>
 		  
-		  <div id="set" class="container tab-pane fade">
-		  	<div class="jumbotron">
-		  		<h2>Install</h2>
-		    	<p>Don't panic! Set-up is easy!</p>
-		    	<p>All you have to do is to add just little code to make everything work perfectly. Here is a guide to help you in the set-up process.</p>
-		    	<p class="text-warning">If you are looking for the plug-in options see the <a href="#doc">Documentation</a> section.</p>
-		    </div>
+		  <div id="about" class="container tab-pane fade">
+		    <h3>ABOUT</h3>
+		    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 		  </div>
 		  
-		  <div id="doc" class="container tab-pane fade">
+		  <div id="contact" class="container tab-pane fade">
 		    <h3>CONTACT</h3>
 		    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 		  </div>
@@ -102,7 +86,8 @@
 				$( '#nb2sb-nav' ).nb2sb({
 					selectors : {
 					opener: '#nb2sb-btn',
-					content: '#nb2sb-content',				
+					content: '#nb2sb-content',	
+					closingLinks: '.close-sb'			
 					},
 					settings: {
 						animation: {
