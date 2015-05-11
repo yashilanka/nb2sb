@@ -34,9 +34,9 @@
     		<div id="nb2sb-content">
     		  <ul class="nav navbar-nav nav-pills navbar-right">
     			  <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
-    				<li><a data-toggle="pill" href="#about">About</a></li>
-    				<li><a data-toggle="pill" href="#contact">Contact</a></li>
-    				<li><a data-toggle="pill" href="#gallery">Gallery</a></li>
+    				<li><a class="close-nb2sb" data-toggle="pill" href="#about">About</a></li>
+    				<li><a class="close-nb2sb" data-toggle="pill" href="#contact">Contact</a></li>
+    				<li><a class="close-nb2sb" data-toggle="pill" href="#gallery">Gallery</a></li>
     			</ul>
     		</div>
     	</div>
@@ -46,6 +46,7 @@
 2. In order to trigger the animations you have to give a unique ID or a class to the button or the icon you will show in your navbar. I chose `#nb2sb-btn`. Be sure that the button/icon have these attributes: `class="navbar-toggle" data-toggle="collapse"`. These attributes are default in Bootstrap and they allow the button to hide and show instead of the menu;
 3. As default, `<ul>` must be wrapped in a `<div>`. Give this wrapper a unique ID or a class. As above I chose `#nb2sb-content`;
 4. It does not really matters if you are using *Tabs* or *Pills* because everything will be hidden, although tabs should not be a problem, you should know that I haven't tested them yet, but I will as soon as possible.
+5. Give a class to all links that will close the sidebar. In the example above I chose `.close-nb2sb` but you can choose whatever you like. Put your chosen class into the function option.
 
 ###JavaScript Options
 - Firstly grab the [minified version](jquery.nb2sb.min.js) file and include it in your page;
@@ -59,9 +60,11 @@ Here is the list of the full options along with an example and some explanations
       $( '#nb2sb-nav' ).nb2sb({
     	  selectors : {
     	    //select the button or icon. See point 2 in Basic HTML Structure
-    		  opener: '#nb2sb-btn',
-    		  //select the menu. See point 3 in Basic HTML Structure
-    			content: '#nb2sb-content',				
+    		opener: '#nb2sb-btn',
+    		//select the menu. See point 3 in Basic HTML Structure
+    		content: '#nb2sb-content',
+    		//select the link that will close the sidebar when clicked
+    		closingLinks: '.close-nb2sb'
     		},
     		//here you can customize the plug-in
     		settings: {
