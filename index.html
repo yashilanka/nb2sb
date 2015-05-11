@@ -41,9 +41,9 @@
 				<div id="nb2sb-content">
 				  <ul class="nav navbar-nav nav-pills navbar-right">
 				    <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
-				    <li><a data-toggle="pill" href="#about">About</a></li>
+				    <li><a data-toggle="pill" class="close-sb" href="#about">About</a></li>
 				    <li><a data-toggle="pill" href="#contact">Contact</a></li>
-				    <li><a data-toggle="pill" href="#gallery">Gallery</a></li>
+				    <li><a data-toggle="pill" class="close-sb" href="#gallery">Gallery</a></li>
 				  </ul>
 				</div>
 			</div>
@@ -86,7 +86,8 @@
 				$( '#nb2sb-nav' ).nb2sb({
 					selectors : {
 					opener: '#nb2sb-btn',
-					content: '#nb2sb-content',				
+					content: '#nb2sb-content',	
+					closingLinks: '.close-sb'			
 					},
 					settings: {
 						animation: {

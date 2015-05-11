@@ -6,7 +6,8 @@
             defaults = {
                 selectors: {
                     opener: undefined,
-                    content: undefined
+                    content: undefined,
+                    closingLinks: undefined
                 },
                 settings: {
                     dataName: 'nb2sb',
@@ -27,6 +28,7 @@
             $nav = this,
             $btn = $(cfg.selectors.opener),
             $ctn = $(cfg.selectors.content),
+            $links = $(cfg.selectors.closingLinks),
             //settings
             dataName = cfg.settings.dataName,
             gap = cfg.settings.gap,
@@ -137,7 +139,7 @@
         });
         //
         //closing sidebar when a link is clicked	
-        $sb.on('click', 'a', function () {
+        $sb.on('click', $links, function () {
             nsbw = $sb.outerWidth();
             animationReset = {
                 right: -nsbw
