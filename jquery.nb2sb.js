@@ -140,6 +140,7 @@
         //
         //closing sidebar when a link is clicked	
         $sb.on('click', $links, function () {
+            console.log( $( this ) );
             nsbw = $sb.outerWidth();
             animationReset = {
                 right: -nsbw
