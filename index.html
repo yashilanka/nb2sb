@@ -40,10 +40,10 @@
 				<!-- content -->
 				<div id="nb2sb-content">
 				  <ul class="nav navbar-nav nav-pills navbar-right">
-				    <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+				    <li class="active"><a data-toggle="pill" href="#home">Home<span></a></li>
 				    <li><a data-toggle="pill" class="close-sb" href="#about">About</a></li>
-				    <li><a data-toggle="pill" class="close-sb" href="#contact">Contact</a></li>
-				    <li><a data-toggle="pill" class="close-sb" href="#gallery">Gallery</a></li>
+				    <li><a data-toggle="pill" class="close-sb" href="#random1">Random 1</a></li>
+				    <li><a data-toggle="pill" class="close-sb" href="#random2">Random 2</a></li>
 				  </ul>
 				</div>
 			</div>
@@ -54,52 +54,103 @@
 		    <div id="home" class="container tab-pane fade in active">
 		        <div class="jumbotron">
 		            <h1>Nb2Sb</h1>
-		            <p>Nb2Sb (Navbar to Sidebar) is a Bootstrap-only jQuery plug-in that converts your navbar into a sidebar. </p>
-		            <br>
-		            <h3>Resize your browser window or open this page on a mobile browser.</h3>
-		            
-		            <br>
-		            <p>! This is a beta version. Many features aren't available yet. <br>! Dropdown menus aren't fully supported yet</p>
+		            <p>Nb2Sb (Navbar to Sidebar) is a Bootstrap-only jQuery plug-in that converts your navbar into a sidebar.</p>
+		            <p>Resize your window or open this page on a mobile browser.</p>
 	            </div>
-	    
-		        <div>
-		            <h3>Support Me</h3>
-		            
-		            <br>
-		            <h4>Flattr</h4>
-	                <a href="https://flattr.com/submit/auto?user_id=dcdeiv&url=http%3A%2F%2Fdavidedc.altervista.org" target="_blank"><img src="http://button.flattr.com/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
-		            
-		            <br>
-		            <br>
-		            <h4>Donate</h4>
-	                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="7UUHHQTPNEAJ4">
-                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                        <img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
-                    </form>
+	            
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">This is a beta version. Many features aren't available yet</div>
+                    <div class="panel-body">Dropdown menus aren't fully supported yet.</div>
+                </div>
+                
+                <div class="row panel panel-info">
+                    <div class="col-xs-12">
+                        <h3>Support Me</h3>
+                        <p>I'm not a professional developer so, if you want me to improve this code, please support me.</p>
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="https://flattr.com/submit/auto?user_id=dcdeiv&url=http%3A%2F%2Fdavidedc.altervista.org" target="_blank">
+                            <img src="http://button.flattr.com/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0">
+                        </a>
+                    </div>
+                    <div class="col-xs-2">
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="7UUHHQTPNEAJ4">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+                    </div>
                     
-                    <br>
-                    <h4>Fork and Star this Repository</h4>
-                    <a href="http://github.com/dcdeiv/nb2sb">github.com/dcdeiv/nb2sb</a>
-	            </div>
-	        </div>
+                    <div class="col-xs-12">
+                        <h4>Fork and Star this Repository <a href="http://github.com/dcdeiv/nb2sb">github.com/dcdeiv/nb2sb</a></h4>
+                    </div>
+                </div>
+	        </div><!--home-->
 		  
-		  <div id="about" class="container tab-pane fade">
-		    <h3>ABOUT</h3>
+            <div id="about" class="container tab-pane fade">
+                <div class="jumbotron">
+                    <h2>ABOUT</h2>
+                    <h3>It's all about IDs and Classes!</h3>
+                    <p>The full set up guide is uploaded on <a href="http://github.com/dcdeiv/nb2sb">Github</a></p>
+                </div>
+                
+                <h3>I added just a random id to the bootstrap button. (#nb2sb-btn)</h3>
+                
+<pre><span style="color: #408080; font-style: italic">&lt;!-- icon/button --&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;button</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">&quot;nb2sb-btn&quot;</span> <span style="color: #7D9029">type=</span><span style="color: #BA2121">&quot;button&quot;</span> <span style="color: #7D9029">class=</span><span style="color: #BA2121">&quot;navbar-toggle&quot;</span> <span style="color: #7D9029">data-toggle=</span><span style="color: #BA2121">&quot;collapse&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;span</span> <span style="color: #7D9029">class=</span><span style="color: #BA2121">&quot;icon-bar&quot;</span><span style="color: #008000; font-weight: bold">&gt;&lt;/span&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;span</span> <span style="color: #7D9029">class=</span><span style="color: #BA2121">&quot;icon-bar&quot;</span><span style="color: #008000; font-weight: bold">&gt;&lt;/span&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;span</span> <span style="color: #7D9029">class=</span><span style="color: #BA2121">&quot;icon-bar&quot;</span><span style="color: #008000; font-weight: bold">&gt;&lt;/span&gt;</span> 
+<span style="color: #008000; font-weight: bold">&lt;/button&gt;</span>
+</pre>
+                <h3>Then I added another random ID to the navbar content just before the ul: #nb2sb-content.</h3>
+                <h3>And eventually I added a random class to all elements that, when clicked, will close the sidebar (.close-sb) - This doesn't happen with the default navbar.</h3>
+
+<pre><span style="color: #408080; font-style: italic">&lt;!-- content --&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;div</span> <span style="color: #7D9029">id=</span><span style="color: #BA2121">&quot;nb2sb-content&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;ul</span> <span style="color: #7D9029">class=</span><span style="color: #BA2121">&quot;nav navbar-nav nav-pills navbar-right&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;li</span> <span style="color: #7D9029">class=</span><span style="color: #BA2121">&quot;active&quot;</span><span style="color: #008000; font-weight: bold">&gt;&lt;a</span> <span style="color: #7D9029">data-toggle=</span><span style="color: #BA2121">&quot;pill&quot;</span> <span style="color: #7D9029">href=</span><span style="color: #BA2121">&quot;#&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>#<span style="color: #008000; font-weight: bold">&lt;span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;li&gt;&lt;a</span> <span style="color: #7D9029">data-toggle=</span><span style="color: #BA2121">&quot;pill&quot;</span> <span style="color: #7D9029">class=</span><span style="color: #BA2121">&quot;close-sb&quot;</span> <span style="color: #7D9029">href=</span><span style="color: #BA2121">&quot;#&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>#<span style="color: #008000; font-weight: bold">&lt;/a&gt;&lt;/li&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;li&gt;&lt;a</span> <span style="color: #7D9029">data-toggle=</span><span style="color: #BA2121">&quot;pill&quot;</span> <span style="color: #7D9029">class=</span><span style="color: #BA2121">&quot;close-sb&quot;</span> <span style="color: #7D9029">href=</span><span style="color: #BA2121">&quot;#&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>#<span style="color: #008000; font-weight: bold">&lt;/a&gt;&lt;/li&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;li&gt;&lt;a</span> <span style="color: #7D9029">data-toggle=</span><span style="color: #BA2121">&quot;pill&quot;</span> <span style="color: #7D9029">class=</span><span style="color: #BA2121">&quot;close-sb&quot;</span> <span style="color: #7D9029">href=</span><span style="color: #BA2121">&quot;#&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>#<span style="color: #008000; font-weight: bold">&lt;/a&gt;&lt;/li&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;/ul&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;/div&gt;</span>
+</pre>
+
+    <h3>Finally I used those IDs and Class in the function.</h3>
+    <h4>To read the full list of options, please, visit the <a href="http://github.com/dcdeiv/nb2sb">Github page</a></h4>
+
+<pre>$( <span style="color: #008000">document</span> ).ready(<span style="color: #008000; font-weight: bold">function</span>() {
+  $( <span style="color: #BA2121">&#39;#nb2sb-nav&#39;</span> ).nb2sb({
+    selectors<span style="color: #666666">:</span> {
+      opener<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;#nb2sb-btn&#39;</span>,
+      content<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;#nb2sb-content&#39;</span>,
+      closingLinks<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;.close-sb&#39;</span>
+    },
+    settings<span style="color: #666666">:</span> {
+      animation<span style="color: #666666">:</span> {
+        easing<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;easeOutQuint&#39;</span>
+      }				
+    }
+  });
+});
+</pre>
+            </div><!--about-->
+		  
+		  <div id="random1" class="container tab-pane fade">
+		    <h3>Random 1</h3>
 		    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 		  </div>
 		  
-		  <div id="contact" class="container tab-pane fade">
-		    <h3>CONTACT</h3>
-		    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		  </div>
-		  
-		  <div id="gallery" class="container tab-pane fade">
-		    <h3>GALLERY</h3>
+		  <div id="random2" class="container tab-pane fade">
+		    <h3>Random 2</h3>
 		    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 		  </div>
 		</div>
+		
+		<br>
+		<br>
 
 		<!--jQuery v1.11.2 & jQuery-UI v1.11.4-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
