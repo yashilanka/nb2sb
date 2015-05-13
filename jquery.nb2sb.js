@@ -96,7 +96,7 @@
         //resetting new $ctn on sidebar
         $sUl = $sbWrapper.children();
         //
-        sUlClasses = $sUl.prop('class').;
+        sUlClasses = $sUl.prop('class');
         //
         $sUl.removeClass(sUlClasses).addClass('nav nav-pills nav-stacked nb2sb-active');
 
