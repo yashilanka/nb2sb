@@ -2,10 +2,14 @@
 
 **Nb2Sb (Navbar to Sidebar)** is a *Bootstrap-only* jQuery plug-in that converts your navbar into a sidebar.
 
-
-**This is a beta version. There could be some bugs**
-
 ##[DEMO](http://dcdeiv.github.io/nb2sb)
+
+### Buy me a beer:
+<a href="https://flattr.com/submit/auto?user_id=dcdeiv&url=https%3A%2F%2Fgithub.com%2Fdcdeiv%2Fnb2sb" target="_blank"><img src="http://button.flattr.com/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
+
+## DISCLAIMER:
+* **This is a beta version. There could be some bugs**
+* **Dropdown menus are not fully supported yet**
 
 ## Dependencies
 
